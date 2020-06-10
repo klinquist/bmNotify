@@ -1,0 +1,17 @@
+{
+  "name": "bmnotify",
+  "version": "1.0.0",
+  "description": "Receive notifications when someone keys up in a specific Brandmeister talkgroup",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kris Linquist <kris@linquist.net>",
+  "license": "ISC",
+  "dependencies": {
+    "irc": "^0.5.2",
+    "moment": "^2.26.0",
+    "node-cache": "^5.1.1",
+    "socket.io-client": "^2.3.0"
+  }
+}

@@ -2,6 +2,8 @@
 
 This is a small nodejs script which connects to the Brandmeister API and will announce on IRC when a transmission is heard on a specific talk group.
 
+Edit `index.js` to define your preferred talkgroups and irc details.
+
 Install & run:
 ```
 npm install

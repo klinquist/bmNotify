@@ -37,7 +37,7 @@ const client = new irc.Client(IRC_SERVER, BOT_NICK, {
 
 socket.on('mqtt', (msg) => {
     const lhMsg = JSON.parse(msg.payload);
-    if (TALK_GROUPS_TO_MONITOR.indexOf(lhMsg.DestinationID) > -1 && lhMsg.Event == 'Session-Stop' && (lhMsg.Stop - lhMsg.Start) >= MINIMUM_REQUIRED_TRANSMIT_TIME_SECONDS && !sessionIdCache.get(lhMsg.SessionID)) {
+    if (TALK_GROUPS_TO_MONITOR.indexOf(lhMsg.DestinationID) > -1 && lhMsg.Stop !== 0 && (lhMsg.Stop - lhMsg.Start) >= MINIMUM_REQUIRED_TRANSMIT_TIME_SECONDS && !sessionIdCache.get(lhMsg.SessionID)) {
         sessionIdCache.set(lhMsg.SessionID, true);
         if ((Math.round(new Date().getTime() / 1000) - lhMsg.Stop) <= CACHE_SECONDS) {
             const lastHeard = lastHeardCache.get(lhMsg.DestinationID);
